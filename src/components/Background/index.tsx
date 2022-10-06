@@ -1,7 +1,7 @@
-import { Image, ImageBackground } from "react-native";
+import { Image, ImageBackground, View } from "react-native";
 
-import backgroundImg from "../../assets/slash.png";
-import logo from "../../assets/logo.png";
+import backgroundImg from "../../assets/fundo.png";
+import Logo from "../../assets/logo.svg";
 
 import { styles } from "./styles";
 
@@ -16,8 +16,8 @@ export function Background({ children }: Props) {
       defaultSource={backgroundImg}
       style={styles.container}
     >
-      <Image source={logo} defaultSource={backgroundImg} style={styles.logo} />
-      {children}
+      <Logo width="270" height="270" style={styles.logo} />
+      <View style={styles.content}>{children}</View>
     </ImageBackground>
   );
 }
