@@ -4,10 +4,14 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { StyleSheet } from "react-native";
 import { THEME } from "../themes";
 
-export function Button() {
+interface Props {
+  text: string;
+}
+
+export function Button({ text }: Props) {
   return (
     <TouchableOpacity style={styles.container}>
-      <Text style={styles.textButton}>ENTRAR</Text>
+      <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>
   );
 }
@@ -15,7 +19,7 @@ export function Button() {
 const styles = StyleSheet.create({
   container: {
     width: "80%",
-    height: 55,
+    height: 60,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
