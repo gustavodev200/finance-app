@@ -1,16 +1,17 @@
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, GestureResponderEvent } from "react-native";
 
 import { StyleSheet } from "react-native";
 import { THEME } from "../themes";
 
 interface Props {
   text: string;
+  onPress: (event: GestureResponderEvent) => void;
 }
 
-export function Button({ text }: Props) {
+export function Button({ text, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.textButton}>{text}</Text>
     </TouchableOpacity>
   );
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10,
     backgroundColor: THEME.COLORS.PRIMARY,
-    marginTop: "5%",
+    marginTop: "4%",
   },
   textButton: {
     color: THEME.COLORS.BACKGROUND_900,

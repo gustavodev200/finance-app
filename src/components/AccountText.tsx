@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, GestureResponderEvent } from "react-native";
 
 import { StyleSheet } from "react-native";
 import { THEME } from "../themes";
@@ -7,11 +7,12 @@ import { THEME } from "../themes";
 interface Props {
   textInfo: string;
   textStatus: string;
+  navigation: (event: GestureResponderEvent) => void;
 }
 
-export function AccountText({ textStatus, textInfo }: Props) {
+export function AccountText({ textStatus, textInfo, navigation }: Props) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={navigation}>
       <Text style={styles.textInfo}>{textInfo}</Text>
       <Text style={styles.textStatus}>{textStatus}</Text>
     </TouchableOpacity>

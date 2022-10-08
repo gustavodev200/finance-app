@@ -11,6 +11,7 @@ import {
 import { Loading } from "./src/components/Loading";
 import { Background } from "./src/components/Background";
 import { Router } from "./src/routes/Router";
+import { AuthProvider } from "./src/contexts/Auth";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,5 +20,5 @@ export default function App() {
     Inter_700Bold,
     Inter_900Black,
   });
-  return fontsLoaded ? <Router /> : <Loading />;
+  return <AuthProvider>{fontsLoaded ? <Router /> : <Loading />}</AuthProvider>;
 }

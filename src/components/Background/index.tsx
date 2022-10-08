@@ -1,4 +1,4 @@
-import { Image, ImageBackground, View } from "react-native";
+import { ImageBackground, View } from "react-native";
 
 import backgroundImg from "../../assets/fundo.png";
 import Logo from "../../assets/logo.svg";
@@ -18,7 +18,7 @@ export function Background({ children }: Props) {
     >
       <View style={styles.content}>
         <View style={styles.logoContainer}>
-          <Logo width="270" height="270" style={styles.logo} />
+          <Logo width="230" height="230" style={styles.logo} />
         </View>
         {children}
       </View>

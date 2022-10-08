@@ -12,9 +12,7 @@ export const styles = StyleSheet.create({
     width: "100%",
   },
   logo: {
-    position: "relative",
-    zIndex: 1,
-    marginTop: -170,
+    marginTop: -160,
   },
 
   content: {

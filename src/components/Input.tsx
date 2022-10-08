@@ -11,9 +11,18 @@ interface InputProps {
   type?: KeyboardTypeOptions;
   icon: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
   password?: boolean;
+  onChangeText: (text: string) => void;
+  value?: string;
 }
 
-export function Input({ placeholder, type, icon, password }: InputProps) {
+export function Input({
+  placeholder,
+  type,
+  icon,
+  password,
+  value,
+  onChangeText,
+}: InputProps) {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons
@@ -26,6 +35,8 @@ export function Input({ placeholder, type, icon, password }: InputProps) {
         placeholder={placeholder}
         keyboardType={type}
         secureTextEntry={password}
+        onChangeText={onChangeText}
+        value={value}
       />
     </View>
   );
@@ -34,7 +45,7 @@ export function Input({ placeholder, type, icon, password }: InputProps) {
 const styles = StyleSheet.create({
   container: {
     width: "80%",
-    height: 60,
+    height: 55,
     borderRadius: 10,
     backgroundColor: THEME.COLORS.BACKGROUND_600,
     alignItems: "center",
