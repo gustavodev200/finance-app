@@ -5,19 +5,19 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../themes";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { IconProps } from "@expo/vector-icons/build/createIconSet";
 
 interface InputProps {
   placeholder: string;
   type?: KeyboardTypeOptions;
-  icon: string;
+  icon: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
+  password?: boolean;
 }
 
-export function Input({ placeholder, type, icon }: InputProps) {
+export function Input({ placeholder, type, icon, password }: InputProps) {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons
-        // name={icon}
+        name={icon}
         size={24}
         color={THEME.COLORS.CAPTION_500}
       />
@@ -25,6 +25,7 @@ export function Input({ placeholder, type, icon }: InputProps) {
         style={styles.input}
         placeholder={placeholder}
         keyboardType={type}
+        secureTextEntry={password}
       />
     </View>
   );
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     padding: 10,
+    marginBottom: "5%",
   },
   input: {
     flex: 1,

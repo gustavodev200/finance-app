@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10,
     backgroundColor: THEME.COLORS.PRIMARY,
+    marginTop: "5%",
   },
   textButton: {
     color: THEME.COLORS.BACKGROUND_900,

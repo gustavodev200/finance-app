@@ -16,8 +16,12 @@ export function Background({ children }: Props) {
       defaultSource={backgroundImg}
       style={styles.container}
     >
-      <Logo width="270" height="270" style={styles.logo} />
-      <View style={styles.content}>{children}</View>
+      <View style={styles.content}>
+        <View style={styles.logoContainer}>
+          <Logo width="270" height="270" style={styles.logo} />
+        </View>
+        {children}
+      </View>
     </ImageBackground>
   );
 }

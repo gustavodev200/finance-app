@@ -3,20 +3,20 @@ import { THEME } from "../../themes";
 
 export const styles = StyleSheet.create({
   container: {
-    position: "relative",
     flex: 1,
-    alignItems: "center",
     justifyContent: "flex-end",
     backgroundColor: THEME.COLORS.BACKGROUND_800,
   },
-  logo: {
-    position: "absolute",
-    top: 0,
-    zIndex: 100,
-    marginTop: "15%",
+  logoContainer: {
     alignItems: "center",
-    justifyContent: "center",
+    width: "100%",
   },
+  logo: {
+    position: "relative",
+    zIndex: 1,
+    marginTop: -170,
+  },
+
   content: {
     width: "100%",
     height: "70%",
