@@ -1,6 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Alert } from "react-native";
 import { authService } from "../services/authService";
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export interface AuthData {
   token: string;
@@ -18,6 +20,7 @@ interface AuthContextData {
   //     password: string
   //   ) => Promise<AuthData>;
   signOut: () => Promise<void>;
+  loading: boolean;
 }
 
 interface Props {
@@ -30,15 +33,26 @@ export const AuthContext = createContext<AuthContextData>(
 
 export const AuthProvider = ({ children }: Props) => {
   const [authData, setAuth] = useState<AuthData>();
+  const [loading, setLoading] = useState(true);
 
-  const signIn = async (
-    email: string,
-    password: string
-  ): Promise<AuthData | undefined> => {
+  useEffect(() => {
+    loadFromStorage();
+  }, []);
+
+  async function loadFromStorage() {
+    const auth = await AsyncStorage.getItem("@AuthData");
+    if (auth) {
+      setAuth(JSON.parse(auth) as AuthData);
+    }
+    setLoading(false);
+  }
+
+  const signIn = async (email: string, password: string) => {
     try {
       const auth = await authService.signIn(email, password);
 
       setAuth(auth);
+      AsyncStorage.setItem("@AuthData", JSON.stringify(auth));
 
       return auth;
     } catch (error) {
@@ -48,6 +62,7 @@ export const AuthProvider = ({ children }: Props) => {
 
   async function signOut(): Promise<void> {
     setAuth(undefined);
+    AsyncStorage.removeItem("@AuthData");
 
     return;
   }
@@ -55,7 +70,7 @@ export const AuthProvider = ({ children }: Props) => {
   async function register() {}
 
   return (
-    <AuthContext.Provider value={{ authData, signIn, signOut }}>
+    <AuthContext.Provider value={{ authData, loading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
