@@ -11,9 +11,12 @@ export function AuthStack() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
+        animation: "slide_from_left",
       }}
     >
-      <Stack.Screen name="SignIn" component={SignIn} />
+      <Stack.Screen options={{}} name="SignIn" component={SignIn} />
       <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
