@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/Auth";
 
 import { styles } from "./styles";
 
-export function Home() {
+export function HomeScreen() {
   const { signOut } = useAuth();
   return (
     <View style={styles.container}>
