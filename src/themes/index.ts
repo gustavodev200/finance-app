@@ -6,6 +6,7 @@ export const THEME = {
     BACKGROUND_600: "#D8D8D8",
 
     TEXT: "#FFFFFF",
+    BLACK: "#000000",
 
     CAPTION_500: "#909090",
     CAPTION_400: "#A1A1AA",
@@ -14,6 +15,7 @@ export const THEME = {
     SHAPE: "#2A2634",
 
     PRIMARY: "#FFCB26",
+    SECUNDARY: "#FFAA00",
     SUCCESS: "#34D399",
     ALERT: "#F87171",
 

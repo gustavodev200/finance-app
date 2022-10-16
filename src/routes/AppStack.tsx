@@ -6,6 +6,7 @@ import { HomeScreen } from "../screens/HomeScreen";
 import { ControlScreen } from "../screens/ControlScreen";
 import { AcquisitionsScreen } from "../screens/AcquisitionsScreen";
 import { ProfileScreen } from "../screens/ProfileScreen";
+import { AddMoneyScreen } from "../screens/AddMoneyScreen";
 
 import { Feather, Entypo } from "@expo/vector-icons";
 
@@ -18,12 +19,18 @@ export function AppStack() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: THEME.COLORS.TEXT,
-        tabBarActiveBackgroundColor: THEME.COLORS.BACKGROUND_900,
-        tabBarInactiveTintColor: THEME.COLORS.BACKGROUND_900,
+        headerShown: false,
+        tabBarActiveTintColor: THEME.COLORS.BACKGROUND_900,
+        // tabBarActiveBackgroundColor: THEME.COLORS.BACKGROUND_900,
+        tabBarInactiveTintColor: THEME.COLORS.CAPTION_500,
+        tabBarLabelStyle: {
+          fontWeight: "bold",
+        },
 
         tabBarStyle: {
-          backgroundColor: THEME.COLORS.BACKGROUND_600,
+          paddingBottom: 5,
+          height: 60,
+          backgroundColor: THEME.COLORS.TEXT,
         },
       }}
     >
@@ -47,11 +54,11 @@ export function AppStack() {
       />
       <Tab.Screen
         name="Adicionar"
-        component={ButtonNew}
+        component={AddMoneyScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: ({ size, color }) => (
-            <ButtonNew size={size} color={color} />
+          tabBarIcon: ({ focused, color, size }) => (
+            <ButtonNew focused={focused} color={color} size={size} />
           ),
         }}
       />
