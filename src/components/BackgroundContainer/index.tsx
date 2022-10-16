@@ -1,7 +1,5 @@
 import { ImageBackground, View } from "react-native";
-
 import backgroundImg from "../../assets/fundo.png";
-
 import { styles } from "./styles";
 
 interface Props {

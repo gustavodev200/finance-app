@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import { BackgroundContainer } from "../../components/BackgroundContainer";
 
 import { styles } from "./styles";
@@ -7,7 +7,9 @@ import { styles } from "./styles";
 export function ProfileScreen() {
   return (
     <BackgroundContainer>
-      <View style={styles.container}></View>
+      <View style={styles.container}>
+        <Text>Perfil</Text>
+      </View>
     </BackgroundContainer>
   );
 }
