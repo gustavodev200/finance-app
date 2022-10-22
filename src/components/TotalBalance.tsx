@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { TransactionContext } from "../contexts/TransactionsContext/TransactionContext";
 import { THEME } from "../themes";
+import { formatAmount } from "../utils/format-amount";
 
 export function TotalBalance() {
+  const { transactions } = useContext(TransactionContext);
+
+  const arrAmount: number[] = transactions.map((transaction) =>
+    parseFloat(transaction.amount)
+  );
+  const total: string = arrAmount
+    .reduce((acc, curr) => acc + curr, 0)
+    .toFixed(2);
+
+  const sign: string = parseFloat(total) < 0 ? "-" : "";
   return (
     <View style={styles.container}>
       <View>
@@ -10,7 +22,12 @@ export function TotalBalance() {
       </View>
       <View style={styles.balanceTotalContent}>
         <Text style={styles.balanceValue}>R$</Text>
-        <Text style={styles.balanceValue}>1.215,10</Text>
+        <Text style={styles.balanceValue}>
+          {sign}
+          {total[0] === "-"
+            ? formatAmount(total).substring(1)
+            : formatAmount(total)}
+        </Text>
       </View>
     </View>
   );

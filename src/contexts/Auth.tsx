@@ -3,6 +3,7 @@ import { Alert } from "react-native";
 import { authService } from "../services/authService";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ChildrenProps } from "../@types/children-props";
 
 export interface AuthData {
   token: string;
@@ -23,15 +24,11 @@ interface AuthContextData {
   loading: boolean;
 }
 
-interface Props {
-  children: React.ReactNode;
-}
-
 export const AuthContext = createContext<AuthContextData>(
   {} as AuthContextData
 );
 
-export const AuthProvider = ({ children }: Props) => {
+export const AuthProvider = ({ children }: ChildrenProps) => {
   const [authData, setAuth] = useState<AuthData>();
   const [loading, setLoading] = useState(true);
 
