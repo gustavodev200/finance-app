@@ -23,7 +23,7 @@ export function CardMoneyInfo({
     <View style={styles[typeCard]}>
       <Text style={styles.textStatusCard}>{statusCard}</Text>
       <View style={styles.contentMoneyInfo}>
-        <MaterialCommunityIcons name={icon} size={32} color="#ffffff" />
+        <MaterialCommunityIcons name={icon} size={36} color="#ffffff" />
         <View style={styles.moneyInsights}>
           <Text style={styles.moneyInsightsText}>{currencyType}</Text>
           <Text style={styles.moneyInsightsText}>{moneyValue}</Text>
