@@ -13,9 +13,9 @@ type PropsButtonRadio = {
 };
 
 const styleDefaultButtonRadio: PropsButtonRadio = {
-  width: "45%",
+  width: "30%",
   borderRadius: 5,
-  padding: 10,
+  padding: 5,
   flexDirection: "row",
   alignItems: "center",
 };
@@ -38,15 +38,16 @@ export function Select() {
             onPress={() => setChecked(1)}
           />
 
-          <MaterialCommunityIcons
+          {/* <MaterialCommunityIcons
             name="trending-up"
             size={24}
             color={THEME.COLORS.TEXT}
-          />
+          /> */}
 
-          <Text style={styles.textButtonRadio}>Entradas</Text>
+          <Text style={styles.textButtonRadio}>Entrada</Text>
         </View>
-        <View style={styles.checkRed}>
+
+        <View style={styles.checkYellow}>
           <RadioButton
             uncheckedColor="#ffffff"
             color="#ffffff"
@@ -55,13 +56,31 @@ export function Select() {
             onPress={() => setChecked(2)}
           />
 
-          <MaterialCommunityIcons
+          {/* <MaterialCommunityIcons
+            name="book-open"
+            size={24}
+            color={THEME.COLORS.TEXT}
+          /> */}
+
+          <Text style={styles.textButtonRadio}>Assinatura</Text>
+        </View>
+
+        <View style={styles.checkRed}>
+          <RadioButton
+            uncheckedColor="#ffffff"
+            color="#ffffff"
+            value={"3"}
+            status={checked === 3 ? "checked" : "unchecked"}
+            onPress={() => setChecked(3)}
+          />
+
+          {/* <MaterialCommunityIcons
             name="trending-down"
             size={24}
             color={THEME.COLORS.TEXT}
-          />
+          /> */}
 
-          <Text style={styles.textButtonRadio}>Entradas</Text>
+          <Text style={styles.textButtonRadio}>Saída</Text>
         </View>
       </View>
     </View>
@@ -99,6 +118,12 @@ const styles = StyleSheet.create({
     ...styleDefaultButtonRadio,
     backgroundColor: THEME.COLORS.ALERT,
   },
+
+  checkYellow: {
+    ...styleDefaultButtonRadio,
+    width: "35%",
+    backgroundColor: THEME.COLORS.PRIMARY,
+  },
   radioInputContainer: {
     marginTop: 10,
     width: "100%",
@@ -107,8 +132,7 @@ const styles = StyleSheet.create({
   },
   textButtonRadio: {
     color: THEME.COLORS.TEXT,
-    fontSize: THEME.FONT_SIZE.MD,
+    fontSize: THEME.FONT_SIZE.SM,
     fontWeight: "bold",
-    marginLeft: 10,
   },
 });
