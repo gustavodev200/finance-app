@@ -19,9 +19,9 @@ export function AppStack() {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarHideOnKeyboard: true,
         headerShown: false,
         tabBarActiveTintColor: THEME.COLORS.BACKGROUND_900,
-        // tabBarActiveBackgroundColor: THEME.COLORS.BACKGROUND_900,
         tabBarInactiveTintColor: THEME.COLORS.CAPTION_500,
         tabBarLabelStyle: {
           fontWeight: "bold",

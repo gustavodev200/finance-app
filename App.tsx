@@ -9,10 +9,10 @@ import {
 } from "@expo-google-fonts/inter";
 
 import { Loading } from "./src/components/Loading";
-import { Background } from "./src/components/Background";
 import { Router } from "./src/routes/Router";
 import { AuthProvider } from "./src/contexts/Auth";
 import { TransactionContextProvider } from "./src/contexts/TransactionsContext/TransactionContext";
+import { Provider as PaperProvider } from "react-native-paper";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,9 +23,11 @@ export default function App() {
   });
   return (
     <AuthProvider>
-      <TransactionContextProvider>
-        {fontsLoaded ? <Router /> : <Loading />}
-      </TransactionContextProvider>
+      <PaperProvider>
+        <TransactionContextProvider>
+          {fontsLoaded ? <Router /> : <Loading />}
+        </TransactionContextProvider>
+      </PaperProvider>
     </AuthProvider>
   );
 }

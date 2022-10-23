@@ -44,7 +44,7 @@ export function Input({
 
 const styles = StyleSheet.create({
   container: {
-    width: "80%",
+    width: "100%",
     height: 55,
     borderRadius: 10,
     backgroundColor: THEME.COLORS.BACKGROUND_600,

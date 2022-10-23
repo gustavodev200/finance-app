@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
   content: {
     width: "100%",
     height: "70%",
+    padding: 20,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     backgroundColor: THEME.COLORS.BACKGROUND_800,
