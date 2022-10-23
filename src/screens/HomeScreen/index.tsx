@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { BackgroundContainer } from "../../components/BackgroundContainer";
 import { CardMoneyInfo } from "../../components/CardMoneyInfo";
 import { TotalBalance } from "../../components/TotalBalance";
+import { TransactionList } from "../../components/TransactionList";
 import { useAuth } from "../../contexts/Auth";
 import { THEME } from "../../themes";
 
@@ -31,7 +32,11 @@ export function HomeScreen() {
           />
         </View>
       </View>
-
+      <SafeAreaView>
+        <TransactionList color={THEME.COLORS.ALERT} />
+        <TransactionList color={THEME.COLORS.SUCCESS} />
+        <TransactionList color={THEME.COLORS.PRIMARY} />
+      </SafeAreaView>
       <TouchableOpacity onPress={() => signOut()}>
         <Text>Sair</Text>
       </TouchableOpacity>
