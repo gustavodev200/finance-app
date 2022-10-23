@@ -1,16 +1,16 @@
 import { StyleSheet } from "react-native";
 import { THEME } from "../../themes";
-import { DefaultCardStyle } from "./DefaultStyle";
+import { defaultCardStyle } from "./defaultStyles";
 
-export const styles = StyleSheet.create({
-  containerRed: {
-    ...DefaultCardStyle,
-    backgroundColor: THEME.COLORS.ALERT,
-  },
-  containerGreen: {
-    ...DefaultCardStyle,
-    backgroundColor: THEME.COLORS.SUCCESS,
-  },
+export const styles = (typeCard: any) =>
+  StyleSheet.create({
+    container: {
+      ...defaultCardStyle,
+      backgroundColor: typeCard,
+    },
+  });
+
+export const stylesContent = StyleSheet.create({
   textStatusCard: {
     color: THEME.COLORS.TEXT,
     fontWeight: "bold",

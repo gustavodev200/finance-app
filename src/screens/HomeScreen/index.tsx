@@ -4,6 +4,7 @@ import { BackgroundContainer } from "../../components/BackgroundContainer";
 import { CardMoneyInfo } from "../../components/CardMoneyInfo";
 import { TotalBalance } from "../../components/TotalBalance";
 import { useAuth } from "../../contexts/Auth";
+import { THEME } from "../../themes";
 
 import { styles } from "./styles";
 
@@ -16,14 +17,14 @@ export function HomeScreen() {
         <View style={styles.cardsInfoView}>
           <CardMoneyInfo
             icon="trending-up"
-            typeCard="containerGreen"
+            typeCard={THEME.COLORS.SUCCESS}
             statusCard="Entradas"
             moneyValue={1.355}
             currencyType="+R$"
           />
           <CardMoneyInfo
             icon="trending-down"
-            typeCard="containerRed"
+            typeCard={THEME.COLORS.ALERT}
             statusCard="Saidas"
             moneyValue={1.232}
             currencyType="-R$"

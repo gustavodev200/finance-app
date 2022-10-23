@@ -1,18 +1,10 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, StyleProp } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { THEME } from "../../themes";
 
-type PropsButtonRadio = {
-  width: string;
-  borderRadius: number;
-  padding: number;
-  flexDirection: string;
-  alignItems: string;
-};
-
-const styleDefaultButtonRadio: PropsButtonRadio = {
+const styleDefaultButtonRadio: StyleProp<any> = {
   width: "30%",
   borderRadius: 5,
   padding: 5,
@@ -38,12 +30,6 @@ export function Select() {
             onPress={() => setChecked(1)}
           />
 
-          {/* <MaterialCommunityIcons
-            name="trending-up"
-            size={24}
-            color={THEME.COLORS.TEXT}
-          /> */}
-
           <Text style={styles.textButtonRadio}>Entrada</Text>
         </View>
 
@@ -56,12 +42,6 @@ export function Select() {
             onPress={() => setChecked(2)}
           />
 
-          {/* <MaterialCommunityIcons
-            name="book-open"
-            size={24}
-            color={THEME.COLORS.TEXT}
-          /> */}
-
           <Text style={styles.textButtonRadio}>Assinatura</Text>
         </View>
 
@@ -73,12 +53,6 @@ export function Select() {
             status={checked === 3 ? "checked" : "unchecked"}
             onPress={() => setChecked(3)}
           />
-
-          {/* <MaterialCommunityIcons
-            name="trending-down"
-            size={24}
-            color={THEME.COLORS.TEXT}
-          /> */}
 
           <Text style={styles.textButtonRadio}>Saída</Text>
         </View>
