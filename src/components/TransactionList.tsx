@@ -3,20 +3,29 @@ import { StyleSheet, Text, View } from "react-native";
 import { THEME } from "../themes";
 
 type ListProps = {
-  color: string;
+  typeTransaction: "Assinatura" | "Entrada" | "Saida";
 };
 
-export function TransactionList({ color }: ListProps) {
+export function TransactionList({ typeTransaction }: ListProps) {
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.text}>ENERGIA</Text>
       </View>
       <View>
-        <Text style={styles.data}>23/10/2022</Text>
+        <Text style={styles.data}>23/10</Text>
       </View>
-      <View style={stylesColorCard(color).containerCardBalance}>
-        <Text style={styles.textBalance}>-R$ 95,00</Text>
+      <View style={stylesColorCard(typeTransaction).containerCardBalance}>
+        <Text style={styles.textCurrencyType}>
+          {typeTransaction === "Entrada"
+            ? "+R$"
+            : typeTransaction === "Saida"
+            ? "-R$"
+            : typeTransaction === "Assinatura"
+            ? "-R$"
+            : "Error"}
+        </Text>
+        <Text style={styles.textBalance}>7.374</Text>
       </View>
     </View>
   );
@@ -46,21 +55,35 @@ const styles = StyleSheet.create({
     fontSize: THEME.FONT_SIZE.SM,
   },
 
-  textBalance: {
+  textCurrencyType: {
     color: THEME.COLORS.TEXT,
     fontWeight: "bold",
     fontSize: THEME.FONT_SIZE.MD,
   },
+  textBalance: {
+    color: THEME.COLORS.TEXT,
+    fontWeight: "bold",
+    fontSize: THEME.FONT_SIZE.MD,
+    marginLeft: 5,
+  },
 });
 
-const stylesColorCard = (color: any) =>
+const stylesColorCard = (typeTransaction: any) =>
   StyleSheet.create({
     containerCardBalance: {
-      width: "35%",
+      width: "40%",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: color,
+      backgroundColor:
+        typeTransaction === "Assinatura"
+          ? THEME.COLORS.PRIMARY
+          : typeTransaction === "Entrada"
+          ? THEME.COLORS.SUCCESS
+          : typeTransaction === "Saida"
+          ? THEME.COLORS.ALERT
+          : "",
       borderRadius: 5,
       height: "100%",
+      flexDirection: "row",
     },
   });

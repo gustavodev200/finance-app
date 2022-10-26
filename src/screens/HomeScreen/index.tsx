@@ -1,16 +1,16 @@
 import React from "react";
-import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, Button, Platform } from "react-native";
+
 import { BackgroundContainer } from "../../components/BackgroundContainer";
 import { CardMoneyInfo } from "../../components/CardMoneyInfo";
 import { TotalBalance } from "../../components/TotalBalance";
+import { TransactionCalendar } from "../../components/TransactionCalendar";
 import { TransactionList } from "../../components/TransactionList";
-import { useAuth } from "../../contexts/Auth";
 import { THEME } from "../../themes";
 
 import { styles } from "./styles";
 
 export function HomeScreen() {
-  const { signOut } = useAuth();
   return (
     <BackgroundContainer>
       <View style={styles.container}>
@@ -31,15 +31,18 @@ export function HomeScreen() {
             currencyType="-R$"
           />
         </View>
+        <View style={styles.searchContainer}>
+          <View style={styles.textSearchStyleContainer}>
+            <Text style={styles.textSearchStyle}>TRANSAÇÕES:</Text>
+          </View>
+          <View></View>
+        </View>
+        <SafeAreaView>
+          <TransactionList typeTransaction="Entrada" />
+          <TransactionList typeTransaction="Assinatura" />
+          <TransactionList typeTransaction="Saida" />
+        </SafeAreaView>
       </View>
-      <SafeAreaView>
-        <TransactionList color={THEME.COLORS.ALERT} />
-        <TransactionList color={THEME.COLORS.SUCCESS} />
-        <TransactionList color={THEME.COLORS.PRIMARY} />
-      </SafeAreaView>
-      <TouchableOpacity onPress={() => signOut()}>
-        <Text>Sair</Text>
-      </TouchableOpacity>
     </BackgroundContainer>
   );
 }

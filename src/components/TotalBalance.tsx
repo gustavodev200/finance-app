@@ -36,7 +36,7 @@ export function TotalBalance() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "20%",
+    height: 60,
     backgroundColor: THEME.COLORS.BACKGROUND_600,
     borderRadius: 10,
     marginBottom: 20,
