@@ -16,10 +16,11 @@ export function TitleScreens({ text }: TitleProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    maxWidth: "100%",
     alignItems: "center",
     justifyContent: "center",
     height: 50,
+    paddingHorizontal: 10,
     backgroundColor: THEME.COLORS.TEXT,
     borderRadius: 10,
   },
