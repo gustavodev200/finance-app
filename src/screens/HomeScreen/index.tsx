@@ -1,11 +1,20 @@
 import React from "react";
-import { View, Text, SafeAreaView, Button, Platform } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  Button,
+  Platform,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 import { BackgroundContainer } from "../../components/BackgroundContainer";
 import { CardMoneyInfo } from "../../components/CardMoneyInfo";
 import { TotalBalance } from "../../components/TotalBalance";
 import { TransactionCalendar } from "../../components/TransactionCalendar";
 import { TransactionList } from "../../components/TransactionList";
+import { transactionData } from "../../services/transactionsData";
 import { THEME } from "../../themes";
 
 import { styles } from "./styles";
@@ -37,10 +46,12 @@ export function HomeScreen() {
           </View>
           <View></View>
         </View>
-        <SafeAreaView>
-          <TransactionList typeTransaction="Entrada" />
-          <TransactionList typeTransaction="Assinatura" />
-          <TransactionList typeTransaction="Saida" />
+        <SafeAreaView style={styles.transactionsContainer}>
+          <FlatList
+            // keyExtractor={(item) => item.id}
+            data={transactionData}
+            renderItem={({ item }) => <TransactionList {...item} />}
+          />
         </SafeAreaView>
       </View>
     </BackgroundContainer>

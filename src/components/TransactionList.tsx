@@ -1,19 +1,27 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { THEME } from "../themes";
+import { formatAmount } from "../utils/format-amount";
 
 type ListProps = {
-  typeTransaction: "Assinatura" | "Entrada" | "Saida";
+  id: number;
+  typeTransaction: string;
+  title: string;
+  date: string;
+  current: string;
 };
 
-export function TransactionList({ typeTransaction }: ListProps) {
+export function TransactionList({
+  typeTransaction,
+  title,
+  date,
+  current,
+  id,
+}: ListProps) {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} key={id}>
       <View>
-        <Text style={styles.text}>ENERGIA</Text>
-      </View>
-      <View>
-        <Text style={styles.data}>23/10</Text>
+        <Text style={styles.text}>{title}</Text>
       </View>
       <View style={stylesColorCard(typeTransaction).containerCardBalance}>
         <Text style={styles.textCurrencyType}>
@@ -25,7 +33,7 @@ export function TransactionList({ typeTransaction }: ListProps) {
             ? "-R$"
             : "Error"}
         </Text>
-        <Text style={styles.textBalance}>7.374</Text>
+        <Text style={styles.textBalance}>{formatAmount(current)}</Text>
       </View>
     </View>
   );
@@ -49,10 +57,6 @@ const styles = StyleSheet.create({
     color: THEME.COLORS.BACKGROUND_900,
     fontWeight: "bold",
     fontSize: THEME.FONT_SIZE.MD,
-  },
-  data: {
-    color: THEME.COLORS.CAPTION_400,
-    fontSize: THEME.FONT_SIZE.SM,
   },
 
   textCurrencyType: {

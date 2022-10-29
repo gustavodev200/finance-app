@@ -19,6 +19,10 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
     backgroundColor: THEME.COLORS.BACKGROUND_600,
   },
+  transactionsContainer: {
+    height: "60%",
+  },
+
   textSearchStyle: {
     color: THEME.COLORS.BACKGROUND_900,
     fontWeight: "bold",
