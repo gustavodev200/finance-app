@@ -2,7 +2,9 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../../themes";
 
 export const styles = StyleSheet.create({
-  container: {},
+  container: {
+    // flex: 1,
+  },
 
   cardsInfoView: {
     flexDirection: "row",
@@ -20,7 +22,7 @@ export const styles = StyleSheet.create({
     backgroundColor: THEME.COLORS.BACKGROUND_600,
   },
   transactionsContainer: {
-    height: "60%",
+    height: "50%",
   },
 
   textSearchStyle: {

@@ -21,7 +21,7 @@ export function ButtonWithIcon({ icon }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 90,
+    width: 80,
     height: 50,
     backgroundColor: THEME.COLORS.PRIMARY,
     borderRadius: 10,
